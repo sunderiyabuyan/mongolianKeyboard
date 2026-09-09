@@ -19,8 +19,8 @@ const INTERCEPTED_KEYS = new Set(
 );
 
 const INITIAL_CONTENT = `
-  <h2>Гарчиг</h2>
-  <p>текст</p>
+  <h2>Туршаад үз(Гарчиг)</h2>
+  <p>Энгийн текст</p>
   <p></p>
 `;
 
