@@ -1,6 +1,6 @@
 # Бичээч (Mongolian Keyboard)
 
-A web-based rich text editor with a built-in phonetic Mongolian Cyrillic keyboard. Type using a standard QWERTY layout — using familiar Latin-letter phonetics — and it transliterates live into Mongolian Cyrillic, so you don't need to learn a native Mongolian keyboard layout or memorize a new key mapping.
+A web-based rich text editor with a built-in phonetic Mongolian Cyrillic keyboard. Type using a standard QWERTY layout using familiar Latin-letter phonetics and it transliterates live into Mongolian Cyrillic, so you don't need to learn a native Mongolian keyboard layout or memorize a new key mapping.
 
 ## Features
 
@@ -39,43 +39,9 @@ npm run dev
 This starts the Vite dev server, by default at `http://localhost:5173`.
 
 
-## Project structure
-
-```
-src/
-  App.tsx                          # route definitions
-  main.tsx                         # app entry point, mounts <BrowserRouter>
-  components/
-    Editor.tsx                     # the /write page: assembles toolbar, document, keyboard, rules rail
-    Toolbar.tsx                    # formatting toolbar (bold/italic/underline/headings/lists/copy/paste)
-    VirtualKeyboard.tsx            # on-screen QWERTY keyboard, shift key, backspace/enter/space
-    RulesRail.tsx                  # sidebar listing digraph rules, highlights the active one
-    HomePage.tsx                   # landing page (/)
-    FeedbackPage.tsx               # feedback page (/feedback)
-    TopBar.tsx                     # shared top navigation
-    Footer.tsx                     # shared footer (simple and "rich" variants)
-  transliteration/
-    map.ts                         # the Latin -> Cyrillic rule table (source of truth for all mappings)
-    engine.ts                      # greedy longest-match transliteration function
-    TransliterationExtension.ts    # Tiptap/ProseMirror extension that wires the engine into live typing
-  styles/
-    tokens.css                     # design tokens: colors, fonts, spacing, shadows
-    base.css                       # resets and shared component classes (buttons, tags, headings)
-    app.css                        # page- and component-specific styles
-```
-
-## Routes
-
-| Path | Page |
-| --- | --- |
-| `/` | Home / landing page |
-| `/write` | The editor |
-| `/feedback` | Feedback page |
-| anything else | redirects to `/` |
-
 ## How the transliteration works
 
-The full set of phonetic rules lives in [`src/transliteration/map.ts`](src/transliteration/map.ts) as a single array of `[latin, cyrillic]` pairs — this is the one place to edit if a mapping needs to change. A few rules use multi-letter Latin sequences (digraphs) to reach Cyrillic letters that don't have an obvious single-letter Latin equivalent:
+The full set of phonetic rules lives in [`src/transliteration/map.ts`](src/transliteration/map.ts) as a single array of `[latin, cyrillic]` pairs. This is the one place to edit if a mapping needs to change. A few rules use multi-letter Latin sequences (digraphs) to reach Cyrillic letters that don't have an obvious single-letter Latin equivalent:
 
 | Type | Result |
 | --- | --- |

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { Logo } from "./Logo";
 
 export function TopBar() {
   const { pathname } = useLocation();
@@ -7,7 +8,7 @@ export function TopBar() {
     <div className="pillnav-wrap">
       <div className="pillnav">
         <Link to="/" className="mark">
-          <i>Б</i>
+          <Logo size={26} />
           <b>Бичээч</b>
         </Link>
         <nav>
